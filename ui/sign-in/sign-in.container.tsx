@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { SignInDisplay } from "./sign-in.display";
 import { useDispatch } from "react-redux";
-import { login } from "@/redux/login";
+import { login } from "@/redux/login.slice";
 import Link from "next/link";
 
 export function SignInContainer() {
