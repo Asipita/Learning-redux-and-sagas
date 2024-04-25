@@ -1,12 +1,22 @@
-import { withLayout } from "@/HOCs/with-layout";
+import withAuthenticatedPage from "@/HOCs/with-authenticated-page";
+import { logout } from "@/redux/login";
 import { Heading } from "@/ui/common/heading";
+import { useDispatch } from "react-redux";
 
 function UserProfile() {
+  const dispatch = useDispatch();
   return (
-    <div>
+    <>
       <Heading>User Profile</Heading>
-    </div>
+
+      <button
+        className="p-2 border bg-gray-700 rounded text-white mt-4 w-20"
+        onClick={() => dispatch(logout())}
+      >
+        Logout
+      </button>
+    </>
   );
 }
 
-export default withLayout(UserProfile);
+export default withAuthenticatedPage(UserProfile);

@@ -1,8 +1,16 @@
 import { Heading } from "@/ui/common/heading";
-import { withLayout } from "@/HOCs/with-layout";
+import Link from "next/link";
+import withPublicPage from "@/HOCs/with-public-page";
 
 function Home() {
-  return <Heading>Home Page</Heading>;
+  return (
+    <>
+      <Heading>Home Page</Heading>
+      <Link href="/sign-in" className="mt-4 hover:underline">
+        Login
+      </Link>
+    </>
+  );
 }
 
-export default withLayout(Home);
+export default withPublicPage(Home);
