@@ -1,3 +1,3 @@
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const fetchUser = async () =>
-  await (await fetch("https://jsonplaceholder.typicode.com/users/1")).json();
-    
+  await (await fetch(`${baseUrl}/users/1`)).json();
