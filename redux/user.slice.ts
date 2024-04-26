@@ -4,11 +4,13 @@ import { createSlice } from "@reduxjs/toolkit";
 type InitialState = {
   loading: boolean;
   user: UserType | null;
+  error: boolean;
 };
 
 const initialState: InitialState = {
   user: null,
   loading: false,
+  error: false,
 };
 
 export const userSlice = createSlice({
@@ -24,6 +26,7 @@ export const userSlice = createSlice({
     },
     loadUserError: (state) => {
       state.loading = false;
+      state.error = true;
     },
   },
 });
