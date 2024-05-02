@@ -1,5 +1,5 @@
 import { RootState } from "@/redux/store";
-import { loadUser } from "@/redux/user.slice";
+import { loadUser } from "@/features/user-display/user-display.slice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserDisplay } from "./user-display.display";

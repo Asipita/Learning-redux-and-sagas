@@ -1,7 +1,7 @@
 import withAuthenticatedPage from "@/HOCs/with-authenticated-page";
-import { logout } from "@/redux/login.slice";
+import { logout } from "@/features/auth/auth.slice";
 import { Heading } from "@/ui/common/heading";
-import { UserDisplayContainer } from "@/ui/user-profile/user-display.container";
+import { UserDisplayContainer } from "@/features/user-display/user-display.container";
 import { useDispatch } from "react-redux";
 
 function UserProfile() {

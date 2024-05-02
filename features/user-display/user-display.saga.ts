@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { loadUser, loadUserSuccess, loadUserError } from "../user.slice";
+import { loadUser, loadUserSuccess, loadUserError } from "./user-display.slice";
 import { fetchUser } from "@/api/lib";
 import { UserType } from "@/schema/types";
 

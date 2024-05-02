@@ -1,6 +1,6 @@
-import { RootState } from "@/redux/store";
+import { selectAuthenticated } from "@/features/auth/auth.slice";
 import { useSelector } from "react-redux";
 
 export const useIsAuthenticated = () => {
-  return useSelector((state: RootState) => state.auth.authenticated);
+  return useSelector(selectAuthenticated);
 };

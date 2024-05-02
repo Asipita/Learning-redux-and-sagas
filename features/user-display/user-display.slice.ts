@@ -1,3 +1,4 @@
+import { RootState } from "@/redux/store";
 import { UserType } from "@/schema/types";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -32,3 +33,5 @@ export const userSlice = createSlice({
 });
 
 export const { loadUser, loadUserSuccess, loadUserError } = userSlice.actions;
+
+export const getUserAuthenticated = (state: RootState) => state.auth.authenticated;

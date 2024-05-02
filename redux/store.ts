@@ -2,10 +2,10 @@ import { applyMiddleware, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import createSagaMiddleware from "redux-saga";
-import { auth } from "./login.slice";
+import { auth } from "../features/auth/auth.slice";
 import { rootSaga } from "./sagas";
-// import { thunk } from "redux-thunk";
-import { userSlice } from "./user.slice";
+
+import { userSlice } from "../features/user-display/user-display.slice";
 
 const persistConfig = {
   key: "root",
