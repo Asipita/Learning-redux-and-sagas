@@ -1,8 +1,11 @@
+import { createAction } from "@reduxjs/toolkit";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { authenticateUser, login } from "./auth.slice";
+import { authenticateUser, authSlice } from "./auth.slice";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
+export const login = createAction<{ email: string; password: string }>(
+  `${authSlice}/login`
+);
 function* onLoginSaga(
   action: ReturnType<typeof login>
 ): Generator<any, void, any> {
@@ -11,5 +14,5 @@ function* onLoginSaga(
 }
 
 export function* watchAuthSaga() {
-  yield takeEvery(login({}).type, onLoginSaga);
+  yield takeEvery(login.type, onLoginSaga);
 }

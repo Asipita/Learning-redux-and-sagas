@@ -1,8 +1,9 @@
 import { FormEvent } from "react";
 import { SignInDisplay } from "./auth.display";
 import { useDispatch, useSelector } from "react-redux";
-import { login, selectIsLoading } from "@/features/auth/auth.slice";
+import { selectIsLoading } from "@/features/auth/auth.slice";
 import Link from "next/link";
+import { login } from "./auth.saga";
 
 export function SignInContainer() {
   const dispatch = useDispatch();

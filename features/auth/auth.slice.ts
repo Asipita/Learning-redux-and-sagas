@@ -1,5 +1,6 @@
 import { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
+import { login } from "./auth.saga";
 
 const initialState = {
   authenticated: false,
@@ -7,8 +8,10 @@ const initialState = {
   isLoading: false,
 };
 
+export const authSlice = "auth"
+
 export const auth = createSlice({
-  name: "auth",
+  name: authSlice,
   initialState,
   reducers: {
     authenticateUser: (state, { payload }) => {
@@ -16,16 +19,20 @@ export const auth = createSlice({
       state.user = payload;
       state.isLoading = false;
     },
-    login: (state, { payload }) => {
-      state.isLoading = true;
-    },
     logout: (state) => {
       state.authenticated = false;
       state.user = null;
     },
   },
+  extraReducers: (builder) =>  {
+    builder.addCase(login.type, 
+       (state) => {
+        state.isLoading = true
+      }
+    )
+  }
 });
 
-export const { login, logout, authenticateUser } = auth.actions;
+export const { logout, authenticateUser } = auth.actions;
 export const selectAuthenticated = (state: RootState) => !!state.auth.user;
 export const selectIsLoading = (state: RootState) => state.auth.isLoading;
